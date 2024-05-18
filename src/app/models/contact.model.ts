@@ -1,4 +1,3 @@
 export class Contact {
-  name: string = '';
-  email: string = '';
+  cep: string = '';
 }
