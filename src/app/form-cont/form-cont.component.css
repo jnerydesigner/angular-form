@@ -1,0 +1,101 @@
+.form-cont {
+  width: 30vw;
+  height: 20vh;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+.form-group {
+
+
+  padding: 10px;
+  display: grid;
+
+  grid-template-rows: auto;
+  grid-template-columns: 100px 1fr;
+}
+
+.form-group label {
+  font-size: 1.2rem;
+  color: #5f27cd;
+}
+
+.form-group input {
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #5f27cd;
+
+  color: #5f27cd;
+}
+
+.form-group input::placeholder {
+  color: #5f27cd;
+  font-size: 0.7rem;
+  font-style: italic;
+
+}
+
+.form-group textarea {
+  padding: 5px;
+  border: none;
+
+}
+
+
+.btn {
+  padding: 5px;
+  border: none;
+
+  background-color: #9fa8b3;
+  color: #fff;
+
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  height: 40px;
+
+  transition: background-color 0.3s;
+
+  border-radius: 5px;
+
+}
+
+.btn:hover {
+  background-color: #7444d6
+}
+
+.btn-primary {
+  background-color: #5f27cd
+}
+
+.form-group button {
+  padding: 5px;
+  border: none;
+  background-color: #576574;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-content {
+  width: 30vw;
+  height: 20vh;
+
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  border: 2px dashed #5f27cd;
+  color: #5f27cd;
+}
