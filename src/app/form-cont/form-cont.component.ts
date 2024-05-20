@@ -10,7 +10,7 @@ import { Contact } from '../models/contact.model';
 import { CommonModule } from '@angular/common';
 import { CepService } from '../cep/cep.service';
 import { ViaCepModel } from '../models/viacep.model';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-form-cont',
@@ -44,26 +44,25 @@ export class FormContComponent implements OnInit {
     });
   }
 
-  async onSubmit() {
+  onSubmit() {
     this.submittedData = this.formContact.value;
     const cep = this.formContact.get('cep')?.value;
     try {
-      const cepResolver: ViaCepModel | undefined = await this.cepService
+      this.cepService
         .buscarCep(cep)
-        .toPromise();
-
-      if (cepResolver) {
-        this.cepResponse = cepResolver;
-      } else {
-        console.error('CEP não encontrado');
-      }
+        .pipe(
+          map((cepResolver: ViaCepModel | undefined) => {
+            if (cepResolver) {
+              this.cepResponse = cepResolver;
+            } else {
+              console.error('CEP não encontrado');
+            }
+          })
+        )
+        .subscribe(() => console.log('CEP encontrado'));
     } catch (error) {
       console.error(error);
     }
-
-    console.log(this.cepResponse);
-    console.log(this.submittedData);
-
     this.formContact.reset();
   }
 }
